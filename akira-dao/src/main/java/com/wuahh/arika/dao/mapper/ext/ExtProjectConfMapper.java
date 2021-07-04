@@ -1,7 +1,7 @@
 package com.wuahh.arika.dao.mapper.ext;
 
-import com.megvii.gdc.ci.dao.entity.ProjectConf;
-import com.megvii.gdc.ci.dao.mapper.gen.ProjectConfMapper;
+import com.wuahh.arika.dao.entity.ProjectConf;
+import com.wuahh.arika.dao.mapper.gen.ProjectConfMapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
