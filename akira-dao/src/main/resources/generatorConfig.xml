@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+		PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+		"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<context defaultModelType="flat" id="write" targetRuntime="MyBatis3">
+		<!--防止多次生成，重复的sql叠加-->
+		<plugin type="com.github.mybatis.generator.plugin.XmlFileOverwritePlugin"/>
+		<!--提供lombok支持，非必需-->
+		<plugin type="com.github.mybatis.generator.plugin.LombokPlugin"/>
+		<!--提供批量插入支持-->
+		<plugin type="com.github.mybatis.generator.plugin.MultiInsertPlugin"/>
+		<plugin type="com.github.mybatis.generator.plugin.KeyGeneratorPlugin"/>
+		<!--忽略表的某些前缀来生成对应的对象，譬如表名为t_sms_template, 忽略t_后，生成的实体类是SmsTemplate, 符合实际需求-->
+		<!--<plugin type="com.github.mybatis.generator.plugin.RenamePlugin">
+			<property name="ignoreTablePrefix" value="t_"/>
+		</plugin>-->
+		<commentGenerator type="com.github.mybatis.generator.comment.CommentGenerator"/>
+		<jdbcConnection connectionURL="jdbc:mysql://localhost:3306/akira?useSSL=false&amp;useUnicode=true&amp;characterEncoding=utf-8"
+						driverClass="com.mysql.jdbc.Driver" password="1qaz"
+						userId="root"/>
+
+		<javaTypeResolver type="com.github.mybatis.generator.type.JavaTypeResolver">
+			<property name="forceLocalDateTime" value="true"/>
+			<property name="forceTinyintInteger" value="true"/>
+			<property name="forceSmallIntInteger" value="true"/>
+		</javaTypeResolver>
+
+
+		<!--实体 -->
+		<javaModelGenerator targetPackage="com.wuahh.arika.dao.entity"
+			targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!--mapper映射文件-->
+		<sqlMapGenerator targetPackage="mappers.gen"
+			targetProject="src/main/resources">
+		</sqlMapGenerator>
+
+		<!--接口mapper -->
+		<javaClientGenerator targetPackage="com.wuahh.arika.dao.mapper.gen"
+			targetProject="src/main/java" type="XMLMAPPER">
+		</javaClientGenerator>
+		<!--<table tableName="project_conf" >
+			<property name="useActualColumnNames" value="false" />
+			<property name="useGenKey" value="true"/>
+		</table>
+
+		<table tableName="pub_repo_conf" >
+			<property name="useActualColumnNames" value="false" />
+		</table>
+		<table tableName="repo_conf" >
+			<property name="useActualColumnNames" value="false" />
+			<property name="useGenKey" value="true"/>
+		</table>
+		<table tableName="pub_channel" >
+			<property name="useActualColumnNames" value="false" />
+		</table>
+		<table tableName="biz_conf" >
+			<property name="useActualColumnNames" value="false" />
+			<property name="useGenKey" value="true"/>
+		</table>
+		<table tableName="execute_record" >
+			<property name="useActualColumnNames" value="false" />
+			<property name="useGenKey" value="true"/>
+		</table>-->
+		<table tableName="repo_hook" >
+			<property name="useActualColumnNames" value="false" />
+			<property name="useGenKey" value="true"/>
+		</table>
+
+	</context>
+
+</generatorConfiguration>
